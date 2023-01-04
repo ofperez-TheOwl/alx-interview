@@ -5,27 +5,29 @@ Contains two functions to check if a list of boxes can be openned
 TheOwl
 """
 
+
 def canUnlockAll(boxes):
     """Check if any box hold the key of the next box
     """
-    i, n = 0, len(boxes)
+    n = len(boxes)
     if (n == 0):
         return (False)
     if (n == 1):
         return (True)
 
-    while (i < n - 1):
-        # no keys in the box
-        if (len(boxes[i]) == 0):
+    unlocked_boxes = [0]
+    locked_boxes = [x for x in range(1, n)]
+    while (len(locked_boxes) != 0):
+        unlocked = len(unlocked_boxes)
+        for i in unlocked_boxes:
+            # check the boxes that can be open by the keys in this box
+            for key in boxes[i]:
+                if (key < n):
+                    if (key not in unlocked_boxes):
+                        unlocked_boxes.append(key)
+                    if (key in locked_boxes):
+                        locked_boxes.remove(key)
+        if (unlocked == len(unlocked_boxes)):
             return (False)
-        # check if any of the keys open the next box
-        unlock = False
-        for key in boxes[i]:
-            if (key == i + 1):
-                unlock = True
-                break
-        if (unlock == False):
-            return (False)
-        i = i + 1
 
     return (True)
