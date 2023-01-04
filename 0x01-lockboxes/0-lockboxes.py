@@ -9,7 +9,9 @@ def canUnlockAll(boxes):
     """Check if any box hold the key of the next box
     """
     i, n = 0, len(boxes)
-    if (n <= 1):
+    if (n == 0):
+        return (False)
+    if (n == 1):
         return (True)
 
     while (i < n - 1):
