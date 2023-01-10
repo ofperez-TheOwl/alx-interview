@@ -7,7 +7,7 @@
 def minOperations(n: int) -> int:
     """Calculate the min of operations to obtain n"""
     # base cases
-    if (n == 1):
+    if (n <= 1):
         return (0)
     if (n == 2):
         return (2)
