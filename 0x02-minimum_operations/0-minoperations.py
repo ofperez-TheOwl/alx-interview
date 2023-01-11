@@ -14,19 +14,13 @@ def minOperations(n):
         if (n % i == 0):
             break
         i = i + 1
+    # if number is prime the number of operations is itself
     if (i == n):
         return (i)
 
     # recursive instructions
-    if (n % 2 == 0):
-        res = minOperations(n / 2)
-        if (res == 0):
-            return (0)
-        else:
-            return (res + 2)
-    elif (n % 3 == 0):
-        res = minOperations(n / 3)
-        if (res == 0):
-            return (0)
-        else:
-            return (res + 3)
+    res = minOperations(n / i)
+    if (res == 0):
+        return (0)
+    else:
+        return (res + i)
