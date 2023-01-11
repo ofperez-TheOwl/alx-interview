@@ -4,12 +4,12 @@
 """
 
 
-def minOperations(n: int) -> int:
+def minOperations(n):
     """Calculate the min of operations to obtain n"""
     # base cases
     if (n <= 1):
         return (0)
-    i: int = 2
+    i = 2
     while (i < n):
         if (n % i == 0):
             break
