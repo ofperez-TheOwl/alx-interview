@@ -9,14 +9,13 @@ def minOperations(n: int) -> int:
     # base cases
     if (n <= 1):
         return (0)
-    if (n == 2):
-        return (2)
-    if (n == 3):
-        return (3)
-    if (n == 5):
-        return (5)
-    if (n == 7):
-        return (7)
+    i: int = 2
+    while (i < n):
+        if (n % i == 0):
+            break
+        i = i + 1
+    if (i == n):
+        return (i)
 
     # recursive instructions
     if (n % 2 == 0):
@@ -25,12 +24,9 @@ def minOperations(n: int) -> int:
             return (0)
         else:
             return (res + 2)
-    else:
-        if (n % 3 == 0):
-            res = minOperations(n / 3)
-            if (res == 0):
-                return (0)
-            else:
-                return (res + 3)
-        else:
+    elif (n % 3 == 0):
+        res = minOperations(n / 3)
+        if (res == 0):
             return (0)
+        else:
+            return (res + 3)
