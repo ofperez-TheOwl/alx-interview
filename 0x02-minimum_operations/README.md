@@ -1,4 +1,4 @@
-# **Pascal's Triangle**
+# **Minimum  operations**
 
 ## **Description**
 
