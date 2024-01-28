@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-
+"""
+rotate 2D Matrix
+It rotates a suare matrix by 90 degre clockwise
+TheOwl
+"""
 def rotate_2d_matrix(matrix):
     n = len(matrix)
 
